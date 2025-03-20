@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GUI</title>
+    <style>
+        body h1{
+        background: linear-gradient(120deg, rgb(0, 0, 0) 70%, rgb(209, 25, 25) 30%);
+        color:#ffffff;
+        }
+
+        ul, #myUL {
+            list-style-type: none;
+        }
+
+        #myUL {
+            margin: 0;
+            padding: 0;
+        }
+
+        .caret {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .caret::before {
+            content: "\25B6";
+            color: black;
+            display: inline-block;
+        }
+
+        .caret-down::before {
+            transform: rotate(90deg);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body>
+    <div id="load" class="load">
+    <h1>GUI</h1>
+    <ul id="myUL">
+        <li><span class="caret"></span>Broker
+            <ul class = hidden>
+                <li><span class="caret">Sensor 1: {{s1}}</span>
+                    <ul class = hidden>
+                        <li><span class="caret">Observation</span>
+                            <ul class = hidden>
+                                <li>Temperature: {{temp_ob1}} </li>
+                                <li>OUT2: {{out2_ob1}}</li>
+                                <li>OUT1: {{out1_ob1}} </li>
+                            </ul>
+                        </li>
+                        <li><span class="caret">Process Data Input</span>
+                            <ul class = hidden>
+                                <li>Temperature: {{temp_pro1}} </li>
+                                <li>OUT2: {{out2_pro1}}</li>
+                                <li>OUT1: {{out2_pro1}} </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><span class="caret">Sensor 2: {{s2}}</span>
+                    <ul class = hidden>
+                        <li><span class="caret">Observation</span>
+                            <ul class = hidden>
+                                <li>Crest: {{crest_ob2}}</li>
+                                <li>Device Status: {{stat_ob2}}</li>
+                                <li>OUT1: {{out1_ob2}}</li>
+                                <li>OUT2: {{out2_ob2}}</li>
+                                <li>Temperature: {{temp_ob2}}</li>
+                                <li>a-Peak: {{apeak_ob2}}</li>
+                                <li>a-Rms: {{arms_ob2}}</li>
+                                <li>v-Rms: {{vrms_ob2}}</li>    
+                            </ul>
+                        </li>
+                        <li><span class="caret">Process Data Input</span>
+                            <ul class = hidden>
+                                <li>Crest: {{crest_pro2}}</li>
+                                <li>Device Status: {{stat_pro2}}</li>
+                                <li>OUT1: {{out1_pro2}}</li>
+                                <li>OUT2: {{out2_pro2}}</li>
+                                <li>Temperature: {{temp_pro2}}</li>
+                                <li>a-Peak: {{apeak_pro2}}</li>
+                                <li>a-Rms: {{arms_pro2}}</li>
+                                <li>v-Rms: {{vrms_pro2}}</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+    var toggler = document.getElementsByClassName("caret");
+    var i;
+
+    for (i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function() {
+        this.parentElement.querySelector(".hidden").classList.toggle("active");
+        this.classList.toggle("caret-down");
+        });
+    }
+    </script>
+    </div>
+  </body>
+</html>
+
+                    
